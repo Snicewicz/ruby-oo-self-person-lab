@@ -1,4 +1,4 @@
-# your code goes here
+
 class Person
     attr_reader :name, :happiness, :hygiene
     attr_accessor :bank_account
@@ -34,7 +34,6 @@ class Person
         @hygiene > 7
     end
     
-    
     def get_paid(salary)
         @bank_account += salary
         return "all about the benjamins"
@@ -52,20 +51,20 @@ class Person
     end
 
     def call_friend(friend)
-        self.happiness = @happiness + 3
-        friend.happiness = @happiness + 3
+        self.happiness += 3
+        friend.happiness += 3
         return "Hi #{friend.name}! It's #{self.name}. How are you?"
     end
 
     def start_conversation(person, topic)
         if topic == "politics"
+            self.happiness -= 2
+            person.happiness -= 2
             return "blah blah partisan blah lobbyist"
-            self.happiness = @happiness - 2
-            person.happiness = @happiness - 2
         elsif topic == "weather"
+            self.happiness += 1
+            person.happiness += 1
             return "blah blah sun blah rain"
-            self.happiness = @happiness + 1
-            person.happiness = @happiness + 1
         else 
             return "blah blah blah blah blah"
         end
